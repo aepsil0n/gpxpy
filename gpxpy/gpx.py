@@ -1745,11 +1745,15 @@ class GPX:
 
             seconds_between = float(mod_utils.total_seconds(end.time - start.time))
 
+            #print('start=%s' % start)
+            #print('end=%s' % end)
+
             for i in range(len(interval)):
                 point = interval[i]
                 ratio = distances_ratios[i]
+                #print ratio
                 point.time = start.time + mod_datetime.timedelta(
-                    seconds=(seconds_between + ratio * seconds_between))
+                    seconds=ratio * seconds_between)
                 #print(point.time)
 
         self.add_missing_data(get_data_function=lambda point: point.time,
