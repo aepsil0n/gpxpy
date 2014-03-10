@@ -313,13 +313,14 @@ class GPXRoutePoint(mod_geo.Location):
 class GPXTrackPoint(mod_geo.Location):
     def __init__(self, latitude, longitude, elevation=None, time=None, symbol=None, comment=None,
                  horizontal_dilution=None, vertical_dilution=None, position_dilution=None, speed=None,
-                 name=None):
+                 name=None, extensions=None):
         mod_geo.Location.__init__(self, latitude, longitude, elevation)
 
         self.time = time
         self.symbol = symbol
         self.comment = comment
         self.name = name
+        self.extensions = extensions or {}
 
         self.horizontal_dilution = horizontal_dilution  # Horizontal dilution of precision
         self.vertical_dilution = vertical_dilution      # Vertical dilution of precision
